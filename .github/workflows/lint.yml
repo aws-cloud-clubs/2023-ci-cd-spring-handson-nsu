@@ -1,0 +1,18 @@
+name: Lint
+
+
+on:
+  pull_request:
+  push:
+
+  jobs:
+    lint:
+      name: Lint
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v4
+
+        - uses: nikitasavinov/checkstyle-action@master # 실제 깃허브 주소
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
